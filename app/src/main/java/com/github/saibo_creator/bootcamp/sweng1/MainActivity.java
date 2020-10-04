@@ -8,12 +8,14 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import com.github.saibo_creator.bootcamp.sweng1.weather.WeatherReport;
 
 public class MainActivity extends AppCompatActivity {
 
     // References to GUI elements
-    private EditText mNameText;
-    private Button mGoButton;
+    private EditText nameText;
+    private Button goButton;
+    private Button weatherButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,14 +23,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // We get a reference to the view objects, using their previously set ID
-        mNameText = findViewById(R.id.mainName);
-        mGoButton = findViewById(R.id.mainGoButton);
+        nameText = findViewById(R.id.mainName);
+        goButton = findViewById(R.id.mainGoButton);
+        weatherButton = findViewById(R.id.weatherButton);
 
         // We then set the behaviour of the button
         // It's quite short, so we can leave it here, but as soon as it starts
         // doing more complex stuff, it should be moved to a separate method
-        mGoButton.setOnClickListener(clicked -> {
-            String name = mNameText.getText().toString();
+        goButton.setOnClickListener(clicked -> {
+            String name = nameText.getText().toString();
             sayHello(name);
         });
 
@@ -36,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
         // Don't hesitate to improve the app every week! In general, feel free to search
         // for anything you want to do on your favourite search engine, the Internet is
         // full of useful resources!
-        mNameText.setOnEditorActionListener((v, actionId, event) -> {
+        nameText.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                mGoButton.callOnClick();
+                goButton.callOnClick();
                 return true;
             }
             return false;
