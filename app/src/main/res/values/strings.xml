@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Sweng1</string>
+    <string name="btn_text">CLICK ME!</string>
+    <string name="greeting_text">WELCOME!</string>
+</resources>
